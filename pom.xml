@@ -27,6 +27,7 @@
         <module>drombler-photocenter-model</module>
         <module>drombler-photocenter-business</module>
         <module>drombler-photocenter-web</module>
+        <module>drombler-photocenter-xmpp</module>
     </modules>
 
     <dependencyManagement>
