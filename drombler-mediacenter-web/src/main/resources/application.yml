@@ -1,0 +1,64 @@
+spring:
+  application:
+    name: 'drombler-mediacenter'
+  datasource:
+    url: ${MEDIACENTER_DB_URL:}
+    username: ${MEDIACENTER_DB_USERNAME:}
+    password: ${MEDIACENTER_DB_PASSWORD:}
+    tomcat:
+      max-wait: 10000 # Number of ms to wait before throwing an exception if no connection is available.
+      max-active: 50 # Maximum number of active connections that can be allocated from this pool at the same time.
+      test-on-borrow: true # Validate the connection before borrowing it from the pool.
+  jpa:
+    hibernate:
+      ddl-auto: none #validate
+    properties:
+      hibernate:
+        default_schema: ${MEDIACENTER_DB_SCHEMA:}
+  liquibase:
+    change-log: 'classpath:/org/drombler/mediacenter/integration/persistence/db.changelog-master.xml'
+    default-schema: ${MEDIACENTER_DB_SCHEMA:}
+  #  jackson:
+  #    serialization:
+  #      indent_output: true
+  lifecycle:
+    timeout-per-shutdown-phase: 20s
+
+server:
+  compression:
+    enabled: true
+  shutdown: graceful
+
+logging:
+  pattern:
+    console: '[%d] [%t] %-5p %c trace=%X{X-B3-TraceId:-} span=%X{X-B3-SpanId:-} parent=%X{X-B3-ParentSpanId:-} %m%n'
+  level:
+    root: 'INFO'
+    org.apache.commons: 'WARN'
+    org.hibernate: 'INFO'
+    org.hibernate.SQL: 'WARN'
+    org.hibernate.type.descriptor.sql: 'WARN'
+    org.springframework: 'WARN'
+    org.springframework.web: 'INFO'
+    org.springframework.security: 'DEBUG' #'INFO'
+    org.springframework.http.converter.json.MappingJackson2HttpMessageConverter: 'ERROR'
+    reactor.netty.http.client.HttpClientConnect: 'ERROR'
+    org.drombler.mediacenter: 'INFO'
+
+
+management:
+  endpoints:
+    web:
+      base-path: '/api'
+      exposure:
+        include: "health,info"
+  endpoint:
+    health:
+      show-details: ALWAYS
+      probes:
+        enabled: true
+  health:
+    livenessstate:
+      enabled: true
+    readinessstate:
+      enabled: true

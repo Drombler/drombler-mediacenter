@@ -1,4 +1,4 @@
-# Drombler PhotoCenter
+# Drombler MediaCenter
 
 ## Build the project from sources
 ```bash
