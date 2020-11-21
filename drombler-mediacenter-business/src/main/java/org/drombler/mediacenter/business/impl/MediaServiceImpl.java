@@ -1,14 +1,14 @@
 package org.drombler.mediacenter.business.impl;
 
 import org.drombler.commons.spring.transaction.stereotype.TransactionalService;
-import org.drombler.mediacenter.business.PhotoService;
+import org.drombler.mediacenter.business.MediaService;
 
 /**
  * @author Florian
  */
 
 @TransactionalService
-public class PhotoServiceImpl implements PhotoService {
+public class MediaServiceImpl implements MediaService {
 
 //    @Autowired
 //    private EventRepository eventRepository;

@@ -7,7 +7,7 @@ package org.drombler.mediacenter.web.controller.v1;
 
 import io.swagger.annotations.Api;
 import lombok.RequiredArgsConstructor;
-import org.drombler.mediacenter.business.PhotoService;
+import org.drombler.mediacenter.business.MediaService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,7 +20,7 @@ import static org.drombler.mediacenter.web.controller.RestControllerUtils.V1_PAT
 @RequiredArgsConstructor
 public class UserPhotoController {
 
-    private final PhotoService eventService;
+    private final MediaService eventService;
 
 //    private final DromblerIdentityProviderManager dromblerIdentityProviderManager;
 //

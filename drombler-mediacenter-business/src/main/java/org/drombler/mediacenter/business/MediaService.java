@@ -5,7 +5,7 @@ package org.drombler.mediacenter.business;
  * @author Florian
  */
 
-public interface PhotoService {
+public interface MediaService {
 
 //    List<Event> getEventsByOwnersContaining(DromblerId owner);
 //

@@ -37,7 +37,7 @@ public class SwaggerConfig {
 
     private ApiInfo createApiInfo() {
         ApiInfoBuilder builder = new ApiInfoBuilder();
-        return builder.title("Drombler PhotoCenter API")
+        return builder.title("Drombler MediaCenter API")
                 .version(buildProperties.getVersion())
                 .build();
     }
