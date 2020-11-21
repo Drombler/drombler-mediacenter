@@ -8,8 +8,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 @Disabled
 public class PhotoCenterAppTests {
 
-    @Test
-    public void contextLoads() {
-    }
+	@Test
+	public void contextLoads() {
+	}
 
 }

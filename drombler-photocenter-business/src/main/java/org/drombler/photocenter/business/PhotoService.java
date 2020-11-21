@@ -2,6 +2,7 @@ package org.drombler.photocenter.business;
 
 
 /**
+ *
  * @author Florian
  */
 

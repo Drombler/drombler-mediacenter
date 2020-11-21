@@ -9,8 +9,8 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 @SpringBootApplication
 public class PhotoCenterApp {
 
-    public static void main(String[] args) {
-        SpringApplication.run(PhotoCenterApp.class, args);
-    }
+	public static void main(String[] args) {
+		SpringApplication.run(PhotoCenterApp.class, args);
+	}
 
 }

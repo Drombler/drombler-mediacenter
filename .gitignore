@@ -53,4 +53,5 @@ build/
 
 ### VS Code ###
 .vscode/
+
 /drombler-photocenter-web/src/main/resources/application-individual.yml

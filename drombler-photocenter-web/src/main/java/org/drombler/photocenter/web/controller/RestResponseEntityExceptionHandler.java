@@ -1,6 +1,7 @@
 package org.drombler.photocenter.web.controller;
 
 /**
+ *
  * @author Florian
  */
 
