@@ -7,7 +7,7 @@ package org.drombler.mediacenter.web.controller;
 import lombok.extern.slf4j.Slf4j;
 import org.drombler.media.photo.core.MediaCenterErrorCode;
 import org.drombler.media.photo.core.MediaCenterErrorResponse;
-import org.drombler.mediacenter.model.PhotoCenterException;
+import org.drombler.mediacenter.model.MediaCenterException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -27,8 +27,8 @@ public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionH
         CODE_STATUS_MAP.put(MediaCenterErrorCode.MEDIACENTER_UNKNOWN, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
-    @ExceptionHandler(PhotoCenterException.class)
-    public ResponseEntity<MediaCenterErrorResponse> handlePhotoCenterException(PhotoCenterException ex) {
+    @ExceptionHandler(MediaCenterException.class)
+    public ResponseEntity<MediaCenterErrorResponse> handleMediaCenterException(MediaCenterException ex) {
         return handleException(ex, ex.getErrorCode());
     }
 
