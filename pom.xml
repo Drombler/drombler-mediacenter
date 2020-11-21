@@ -9,13 +9,13 @@
         <relativePath/>
     </parent>
 
-    <groupId>org.drombler.photocenter</groupId>
-    <artifactId>drombler-photocenter</artifactId>
+    <groupId>org.drombler.mediacenter</groupId>
+    <artifactId>drombler-mediacenter</artifactId>
     <version>0.1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>${project.artifactId}</name>
-    <description>Drombler PhotoCenter</description>
+    <description>Drombler MediaCenter</description>
     <inceptionYear>2019</inceptionYear>
 
     <properties>
@@ -24,10 +24,10 @@
     </properties>
 
     <modules>
-        <module>drombler-photocenter-model</module>
-        <module>drombler-photocenter-integration-persistence</module>
-        <module>drombler-photocenter-business</module>
-        <module>drombler-photocenter-web</module>
+        <module>drombler-mediacenter-model</module>
+        <module>drombler-mediacenter-integration-persistence</module>
+        <module>drombler-mediacenter-business</module>
+        <module>drombler-mediacenter-web</module>
     </modules>
 
     <dependencyManagement>
