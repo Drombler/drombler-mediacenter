@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="v1.0-1" author="puce77">
+        <comment>Create media storage table</comment>
+
+        <createTable tableName="mediastorage" remarks="The media storages">
+            <column name="id" type="BIGINT" remarks="the technical surrogate PK" autoIncrement="true">
+                <constraints primaryKey="true" primaryKeyName="event_pk"/>
+            </column>
+            <column name="mediastorage_id" type="UUID" remarks="the media storage id">
+                <constraints nullable="false" unique="true" uniqueConstraintName="mediastorage_id_unq"/>
+            </column>
+            <column name="name" type="VARCHAR(100)" remarks="the name of the media storage">
+                <constraints nullable="false"/>
+            </column>
+            <column name="directory_path" type="VARCHAR(256)" remarks="the directory path of the media storage">
+                <constraints nullable="false"/>
+            </column>
+            <column name="visibility" type="VARCHAR(15)" remarks="the visibility of the media storage">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_at" type="TIMESTAMP" remarks="the timestamp when this entity was created">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_by" type="VARCHAR(30)" remarks="the user who created this entity">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_at" type="TIMESTAMP" remarks="the timestamp when this entity was last modified">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_by" type="VARCHAR(30)" remarks="the user who last modified this entity">
+                <constraints nullable="false"/>
+            </column>
+            <column name="entity_version" type="BIGINT"
+                    remarks="the entity version used by JPA for optimistic locking"/>
+        </createTable>
+
+    </changeSet>
+
+    <changeSet id="v1.0-2" author="puce77">
+        <comment>Create media storage owner table</comment>
+
+        <createTable tableName="mediastorage_owner" remarks="The owners of a media storage (shared multitenancy)">
+            <column name="mediastorage_id" type="BIGINT" remarks="the mediastorage id (foreign key)">
+                <constraints nullable="false" referencedTableName="mediastorage" referencedColumnNames="id"
+                             foreignKeyName="mediastorage_owner_fk"/>
+            </column>
+            <column name="owner" type="VARCHAR(30)" remarks="the formatted Drombler ID of the owner">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addUniqueConstraint tableName="mediastorage_owner" columnNames="mediastorage_id, owner"
+                             constraintName="mediastorage_owner_unq"/>
+    </changeSet>
+
+    <changeSet id="v1.0-3" author="puce77">
+        <comment>Create media storage category table</comment>
+
+        <createTable tableName="mediastorage_category" remarks="The categories of a media storage">
+            <column name="mediastorage_id" type="BIGINT" remarks="the media storage id (foreign key)">
+                <constraints nullable="false" referencedTableName="mediastorage" referencedColumnNames="id"
+                             foreignKeyName="mediastorage_category_fk"/>
+            </column>
+            <column name="mediacategory_type" type="VARCHAR(20)" remarks="the media category type">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addUniqueConstraint tableName="mediastorage_category" columnNames="mediastorage_id, mediacategory_type"
+                             constraintName="mediastorage_category_type_unq"/>
+    </changeSet>
+</databaseChangeLog>
