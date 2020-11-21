@@ -1,7 +1,7 @@
-package org.drombler.photocenter.business.impl;
+package org.drombler.mediacenter.business.impl;
 
 import org.drombler.commons.spring.transaction.stereotype.TransactionalService;
-import org.drombler.photocenter.business.PhotoService;
+import org.drombler.mediacenter.business.PhotoService;
 
 /**
  * @author Florian

@@ -1,4 +1,4 @@
-package org.drombler.photocenter.integration.persistence.impl;
+package org.drombler.mediacenter.integration.persistence.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.drombler.identity.core.DromblerId;

@@ -1,4 +1,4 @@
-package org.drombler.photocenter.integration.persistence.impl;
+package org.drombler.mediacenter.integration.persistence.impl;
 
 import org.springframework.data.domain.AuditorAware;
 import org.springframework.security.core.Authentication;

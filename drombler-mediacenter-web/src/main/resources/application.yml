@@ -1,10 +1,10 @@
 spring:
   application:
-    name: 'drombler-photocenter'
+    name: 'drombler-mediacenter'
   datasource:
-    url: ${PHOTOCENTER_DB_URL:}
-    username: ${PHOTOCENTER_DB_USERNAME:}
-    password: ${PHOTOCENTER_DB_PASSWORD:}
+    url: ${MEDIACENTER_DB_URL:}
+    username: ${MEDIACENTER_DB_USERNAME:}
+    password: ${MEDIACENTER_DB_PASSWORD:}
     tomcat:
       max-wait: 10000 # Number of ms to wait before throwing an exception if no connection is available.
       max-active: 50 # Maximum number of active connections that can be allocated from this pool at the same time.
@@ -14,10 +14,10 @@ spring:
       ddl-auto: none #validate
     properties:
       hibernate:
-        default_schema: ${PHOTOCENTER_DB_SCHEMA:}
+        default_schema: ${MEDIACENTER_DB_SCHEMA:}
   liquibase:
-    change-log: 'classpath:/org/drombler/photocenter/integration/persistence/db.changelog-master.xml'
-    default-schema: ${PHOTOCENTER_DB_SCHEMA:}
+    change-log: 'classpath:/org/drombler/mediacenter/integration/persistence/db.changelog-master.xml'
+    default-schema: ${MEDIACENTER_DB_SCHEMA:}
   #  jackson:
   #    serialization:
   #      indent_output: true
@@ -43,7 +43,7 @@ logging:
     org.springframework.security: 'DEBUG' #'INFO'
     org.springframework.http.converter.json.MappingJackson2HttpMessageConverter: 'ERROR'
     reactor.netty.http.client.HttpClientConnect: 'ERROR'
-    org.drombler.photocenter: 'INFO'
+    org.drombler.mediacenter: 'INFO'
 
 
 management:

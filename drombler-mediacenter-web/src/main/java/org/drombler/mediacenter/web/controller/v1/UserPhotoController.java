@@ -1,4 +1,4 @@
-package org.drombler.photocenter.web.controller.v1;
+package org.drombler.mediacenter.web.controller.v1;
 
 /**
  * @author Florian
@@ -7,11 +7,11 @@ package org.drombler.photocenter.web.controller.v1;
 
 import io.swagger.annotations.Api;
 import lombok.RequiredArgsConstructor;
-import org.drombler.photocenter.business.PhotoService;
+import org.drombler.mediacenter.business.PhotoService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import static org.drombler.photocenter.web.controller.RestControllerUtils.V1_PATH;
+import static org.drombler.mediacenter.web.controller.RestControllerUtils.V1_PATH;
 
 
 @Api(tags = {"UserEventController V1"})

@@ -1,4 +1,4 @@
-package org.drombler.photocenter.web.controller;
+package org.drombler.mediacenter.web.controller;
 
 /**
  * @author Florian

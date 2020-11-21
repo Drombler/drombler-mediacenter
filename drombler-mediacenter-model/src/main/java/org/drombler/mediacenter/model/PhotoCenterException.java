@@ -1,4 +1,4 @@
-package org.drombler.photocenter.model;
+package org.drombler.mediacenter.model;
 
 import org.drombler.media.photo.core.PhotoCenterErrorCode;
 import org.softsmithy.lib.util.BusinessException;

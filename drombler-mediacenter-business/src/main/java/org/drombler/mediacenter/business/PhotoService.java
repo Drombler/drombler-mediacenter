@@ -1,4 +1,4 @@
-package org.drombler.photocenter.business;
+package org.drombler.mediacenter.business;
 
 
 /**

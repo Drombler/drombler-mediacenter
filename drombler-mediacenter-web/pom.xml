@@ -110,7 +110,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>org.drombler.photocenter.PhotoCenterApp</mainClass>
+                    <mainClass>org.drombler.mediacenter.MediaCenterApp</mainClass>
                     <addResources>true</addResources>
                 </configuration>
                 <executions>

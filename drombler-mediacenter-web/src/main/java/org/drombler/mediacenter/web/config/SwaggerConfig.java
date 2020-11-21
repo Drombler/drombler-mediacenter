@@ -1,6 +1,6 @@
-package org.drombler.photocenter.web.config;
+package org.drombler.mediacenter.web.config;
 
-import org.drombler.photocenter.web.controller.RestControllerUtils;
+import org.drombler.mediacenter.web.controller.RestControllerUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.info.BuildProperties;
 import org.springframework.context.annotation.Bean;

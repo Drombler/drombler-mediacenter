@@ -1,4 +1,4 @@
-package org.drombler.photocenter.integration.persistence.impl;
+package org.drombler.mediacenter.integration.persistence.impl;
 
 import org.drombler.identity.management.DromblerIdentityProviderManager;
 import org.springframework.context.annotation.Bean;

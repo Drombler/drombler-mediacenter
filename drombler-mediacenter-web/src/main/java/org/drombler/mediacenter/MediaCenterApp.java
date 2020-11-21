@@ -1,16 +1,16 @@
-package org.drombler.photocenter;
+package org.drombler.mediacenter;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 
 
-@EnableConfigurationProperties(PhotoCenterAppConfigurationProperties.class)
+@EnableConfigurationProperties(MediaCenterAppConfigurationProperties.class)
 @SpringBootApplication
-public class PhotoCenterApp {
+public class MediaCenterApp {
 
     public static void main(String[] args) {
-        SpringApplication.run(PhotoCenterApp.class, args);
+        SpringApplication.run(MediaCenterApp.class, args);
     }
 
 }

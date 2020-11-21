@@ -1,4 +1,4 @@
-package org.drombler.photocenter.web.controller;
+package org.drombler.mediacenter.web.controller;
 
 /**
  * @author Florian
@@ -7,7 +7,7 @@ package org.drombler.photocenter.web.controller;
 import lombok.extern.slf4j.Slf4j;
 import org.drombler.media.photo.core.PhotoCenterErrorCode;
 import org.drombler.media.photo.core.PhotoCenterErrorResponse;
-import org.drombler.photocenter.model.PhotoCenterException;
+import org.drombler.mediacenter.model.PhotoCenterException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
