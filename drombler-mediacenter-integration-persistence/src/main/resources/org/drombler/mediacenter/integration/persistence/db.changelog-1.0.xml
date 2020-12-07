@@ -22,9 +22,6 @@
             <column name="directory_path" type="VARCHAR(256)" remarks="the directory path of the media storage">
                 <constraints nullable="false"/>
             </column>
-            <column name="visibility" type="VARCHAR(15)" remarks="the visibility of the media storage">
-                <constraints nullable="false"/>
-            </column>
             <column name="created_at" type="TIMESTAMP" remarks="the timestamp when this entity was created">
                 <constraints nullable="false"/>
             </column>
@@ -76,4 +73,22 @@
         <addUniqueConstraint tableName="mediastorage_category" columnNames="mediastorage_id, mediacategory_type"
                              constraintName="mediastorage_category_type_unq"/>
     </changeSet>
+
+    <changeSet id="v1.0-4" author="puce77">
+        <comment>Create media storage type table</comment>
+
+        <createTable tableName="mediastorage_type" remarks="The categories of a media storage">
+            <column name="mediastorage_id" type="BIGINT" remarks="the media storage id (foreign key)">
+                <constraints nullable="false" referencedTableName="mediastorage" referencedColumnNames="id"
+                             foreignKeyName="mediastorage_type_fk"/>
+            </column>
+            <column name="mediastorage_type" type="VARCHAR(20)" remarks="the media storage type">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addUniqueConstraint tableName="mediastorage_type" columnNames="mediastorage_id, mediastorage_type"
+                             constraintName="mediastorage_type_unq"/>
+    </changeSet>
+
 </databaseChangeLog>

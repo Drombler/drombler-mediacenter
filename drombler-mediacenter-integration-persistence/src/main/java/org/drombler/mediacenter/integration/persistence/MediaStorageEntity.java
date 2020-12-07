@@ -7,6 +7,7 @@ import lombok.ToString;
 import org.drombler.commons.spring.jpa.AbstractAuditableEntity;
 import org.drombler.identity.core.DromblerId;
 import org.drombler.media.core.MediaCategoryType;
+import org.drombler.media.core.MediaStorageType;
 import org.drombler.mediacenter.integration.persistence.impl.DromblerIdConverter;
 import org.drombler.mediacenter.integration.persistence.impl.PathConverter;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -47,6 +48,12 @@ public class MediaStorageEntity extends AbstractAuditableEntity {
     private Path directoryPath;
 
     @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name = "mediastorage_type", joinColumns = @JoinColumn(name = "mediastorage_id"))
+    @Column(name = "mediastorage_type")
+    @Enumerated(EnumType.STRING)
+    private Set<MediaStorageType> supportedStorageTypes;
+
+    @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "mediastorage_category", joinColumns = @JoinColumn(name = "mediastorage_id"))
     @Column(name = "mediacategory_type")
     @Enumerated(EnumType.STRING)
@@ -57,9 +64,4 @@ public class MediaStorageEntity extends AbstractAuditableEntity {
     @Column(name = "owner")
     @Convert(converter = DromblerIdConverter.class)
     private Set<DromblerId> owners;
-
-    @NotNull
-    @Column
-    @Enumerated(EnumType.STRING)
-    private Visibility visibility;
 }
