@@ -1,5 +1,6 @@
 package org.drombler.mediacenter.integration.persistence;
 
+import org.drombler.identity.core.DromblerId;
 import org.drombler.identity.core.DromblerUserId;
 import org.drombler.media.core.MediaCategoryType;
 import org.drombler.media.core.MediaStorageType;
@@ -33,6 +34,14 @@ public final class PersistenceTestHelper {
         mediaStorageEntity.setOwners(new HashSet<>(asList(TEST_PRIVATE_USER_1, TEST_PRIVATE_USER_2)));
         mediaStorageEntity.setSupportedMediaCategoryTypes(EnumSet.of(MediaCategoryType.PHOTO));
         return mediaStorageEntity;
+    }
+
+    public static MediaOwnerSettingsEntity createMediaOwnerSettingsEntity(DromblerId owner, MediaCategoryType categoryType, MediaStorageEntity mediaStorageEntity) {
+        MediaOwnerSettingsEntity mediaOwnerSettingsEntity = new MediaOwnerSettingsEntity();
+        mediaOwnerSettingsEntity.setOwner(owner);
+        mediaOwnerSettingsEntity.setSupportedMediaCategoryType(categoryType);
+        mediaOwnerSettingsEntity.setDefaultStorage(mediaStorageEntity);
+        return mediaOwnerSettingsEntity;
     }
 
 //    public static final List<PhotoEntity> createEventEntities(int num) {

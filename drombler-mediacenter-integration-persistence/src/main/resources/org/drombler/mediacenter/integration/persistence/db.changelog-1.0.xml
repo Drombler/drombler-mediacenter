@@ -11,7 +11,7 @@
 
         <createTable tableName="mediastorage" remarks="The media storages">
             <column name="id" type="BIGINT" remarks="the technical surrogate PK" autoIncrement="true">
-                <constraints primaryKey="true" primaryKeyName="event_pk"/>
+                <constraints primaryKey="true" primaryKeyName="mediastorage_pk"/>
             </column>
             <column name="mediastorage_id" type="UUID" remarks="the media storage id">
                 <constraints nullable="false" unique="true" uniqueConstraintName="mediastorage_id_unq"/>
@@ -89,6 +89,43 @@
 
         <addUniqueConstraint tableName="mediastorage_type" columnNames="mediastorage_id, mediastorage_type"
                              constraintName="mediastorage_type_unq"/>
+    </changeSet>
+
+    <changeSet id="v1.0-5" author="puce77">
+        <comment>Create media owner settings table</comment>
+
+        <createTable tableName="mediaowner_settings" remarks="The media owner settings">
+            <column name="id" type="BIGINT" remarks="the technical surrogate PK" autoIncrement="true">
+                <constraints primaryKey="true" primaryKeyName="mediaowner_settings_pk"/>
+            </column>
+            <column name="owner" type="VARCHAR(30)" remarks="the formatted Drombler ID of the owner">
+                <constraints nullable="false"/>
+            </column>
+            <column name="mediacategory_type" type="VARCHAR(20)" remarks="the media category type">
+                <constraints nullable="false"/>
+            </column>
+            <column name="default_storage_id" type="BIGINT" remarks="the mediastorage id (foreign key)">
+                <constraints nullable="false" referencedTableName="mediastorage" referencedColumnNames="id"
+                             foreignKeyName="mediaowner_settings_stor_fk"/>
+            </column>
+            <column name="created_at" type="TIMESTAMP" remarks="the timestamp when this entity was created">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_by" type="VARCHAR(30)" remarks="the user who created this entity">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_at" type="TIMESTAMP" remarks="the timestamp when this entity was last modified">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_by" type="VARCHAR(30)" remarks="the user who last modified this entity">
+                <constraints nullable="false"/>
+            </column>
+            <column name="entity_version" type="BIGINT"
+                    remarks="the entity version used by JPA for optimistic locking"/>
+        </createTable>
+
+        <addUniqueConstraint tableName="mediaowner_settings" columnNames="owner, mediacategory_type"
+                             constraintName="mediaowner_settings_unq"/>
     </changeSet>
 
 </databaseChangeLog>
