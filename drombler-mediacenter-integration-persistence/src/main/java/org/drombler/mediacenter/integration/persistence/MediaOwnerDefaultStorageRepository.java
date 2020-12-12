@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-public interface MediaOwnerSettingsRepository extends JpaRepository<MediaOwnerSettingsEntity, Long> {
-    List<MediaOwnerSettingsEntity> findAllByOwner(DromblerId owner);
+public interface MediaOwnerDefaultStorageRepository extends JpaRepository<MediaOwnerDefaultStorageEntity, Long> {
+    List<MediaOwnerDefaultStorageEntity> findAllByOwner(DromblerId owner);
 
 }

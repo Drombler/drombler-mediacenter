@@ -94,9 +94,9 @@
     <changeSet id="v1.0-5" author="puce77">
         <comment>Create media owner settings table</comment>
 
-        <createTable tableName="mediaowner_settings" remarks="The media owner settings">
+        <createTable tableName="mediaowner_defaultstorage" remarks="The media owner default storage settings">
             <column name="id" type="BIGINT" remarks="the technical surrogate PK" autoIncrement="true">
-                <constraints primaryKey="true" primaryKeyName="mediaowner_settings_pk"/>
+                <constraints primaryKey="true" primaryKeyName="mediaowner_dfltstor_pk"/>
             </column>
             <column name="owner" type="VARCHAR(30)" remarks="the formatted Drombler ID of the owner">
                 <constraints nullable="false"/>
@@ -104,9 +104,10 @@
             <column name="mediacategory_type" type="VARCHAR(20)" remarks="the media category type">
                 <constraints nullable="false"/>
             </column>
-            <column name="default_storage_id" type="BIGINT" remarks="the mediastorage id (foreign key)">
+            <column name="default_storage_id" type="BIGINT"
+                    remarks="the mediastorage id (foreign key) of the default storage for the owner and media category type">
                 <constraints nullable="false" referencedTableName="mediastorage" referencedColumnNames="id"
-                             foreignKeyName="mediaowner_settings_stor_fk"/>
+                             foreignKeyName="mediaowner_dfltstor_stor_fk"/>
             </column>
             <column name="created_at" type="TIMESTAMP" remarks="the timestamp when this entity was created">
                 <constraints nullable="false"/>
@@ -124,8 +125,8 @@
                     remarks="the entity version used by JPA for optimistic locking"/>
         </createTable>
 
-        <addUniqueConstraint tableName="mediaowner_settings" columnNames="owner, mediacategory_type"
-                             constraintName="mediaowner_settings_unq"/>
+        <addUniqueConstraint tableName="mediaowner_defaultstorage" columnNames="owner, mediacategory_type"
+                             constraintName="mediaowner_dfltstor_unq"/>
     </changeSet>
 
 </databaseChangeLog>

@@ -18,8 +18,8 @@ import javax.validation.constraints.NotNull;
 @ToString(onlyExplicitlyIncluded = true)
 @Entity
 @EntityListeners(AuditingEntityListener.class)
-@Table(name = "mediaowner_settings")
-public class MediaOwnerSettingsEntity extends AbstractAuditableEntity {
+@Table(name = "mediaowner_defaultstorage")
+public class MediaOwnerDefaultStorageEntity extends AbstractAuditableEntity {
     /**
      * The technical id of this entity (surrogate PK).
      */

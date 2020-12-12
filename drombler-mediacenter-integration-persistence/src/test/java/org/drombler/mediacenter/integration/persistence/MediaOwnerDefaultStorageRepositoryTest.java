@@ -21,9 +21,9 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @ComponentScan(basePackages = "org.drombler.mediacenter.integration.persistence")
-class MediaOwnerSettingsRepositoryTest {
+class MediaOwnerDefaultStorageRepositoryTest {
     @Autowired
-    private MediaOwnerSettingsRepository testee;
+    private MediaOwnerDefaultStorageRepository testee;
 
     @Autowired
     private MediaStorageRepository mediaStorageRepository;
@@ -36,12 +36,12 @@ class MediaOwnerSettingsRepositoryTest {
         MediaStorageEntity videoMediaStorageEntity = PersistenceTestHelper.createMediaStorageEntity(2);
         videoMediaStorageEntity = mediaStorageRepository.saveAndFlush(videoMediaStorageEntity);
 
-        MediaOwnerSettingsEntity mediaOwnerSettingsEntityPhoto = PersistenceTestHelper.createMediaOwnerSettingsEntity(TEST_PRIVATE_USER_1, PHOTO, photoMediaStorageEntity);
-        mediaOwnerSettingsEntityPhoto = testee.saveAndFlush(mediaOwnerSettingsEntityPhoto);
-        MediaOwnerSettingsEntity mediaOwnerSettingsEntityVideo = PersistenceTestHelper.createMediaOwnerSettingsEntity(TEST_PRIVATE_USER_1, VIDEO, videoMediaStorageEntity);
-        mediaOwnerSettingsEntityVideo = testee.saveAndFlush(mediaOwnerSettingsEntityVideo);
+        MediaOwnerDefaultStorageEntity mediaOwnerDefaultStorageEntityPhoto = PersistenceTestHelper.createMediaOwnerDefaultStorageEntity(TEST_PRIVATE_USER_1, PHOTO, photoMediaStorageEntity);
+        mediaOwnerDefaultStorageEntityPhoto = testee.saveAndFlush(mediaOwnerDefaultStorageEntityPhoto);
+        MediaOwnerDefaultStorageEntity mediaOwnerDefaultStorageEntityVideo = PersistenceTestHelper.createMediaOwnerDefaultStorageEntity(TEST_PRIVATE_USER_1, VIDEO, videoMediaStorageEntity);
+        mediaOwnerDefaultStorageEntityVideo = testee.saveAndFlush(mediaOwnerDefaultStorageEntityVideo);
 
-        List<MediaOwnerSettingsEntity> result = testee.findAllByOwner(TEST_PRIVATE_USER_1);
+        List<MediaOwnerDefaultStorageEntity> result = testee.findAllByOwner(TEST_PRIVATE_USER_1);
 
         assertThat(result).hasSize(2);
     }
@@ -52,20 +52,20 @@ class MediaOwnerSettingsRepositoryTest {
         MediaStorageEntity photoMediaStorageEntity = PersistenceTestHelper.createMediaStorageEntity(1);
         photoMediaStorageEntity = mediaStorageRepository.saveAndFlush(photoMediaStorageEntity);
 
-        MediaOwnerSettingsEntity mediaOwnerSettingsEntityPhoto = PersistenceTestHelper.createMediaOwnerSettingsEntity(TEST_PRIVATE_USER_1, PHOTO, photoMediaStorageEntity);
-        mediaOwnerSettingsEntityPhoto = testee.saveAndFlush(mediaOwnerSettingsEntityPhoto);
+        MediaOwnerDefaultStorageEntity mediaOwnerDefaultStorageEntityPhoto = PersistenceTestHelper.createMediaOwnerDefaultStorageEntity(TEST_PRIVATE_USER_1, PHOTO, photoMediaStorageEntity);
+        mediaOwnerDefaultStorageEntityPhoto = testee.saveAndFlush(mediaOwnerDefaultStorageEntityPhoto);
 
-        Optional<MediaOwnerSettingsEntity> result = testee.findById(mediaOwnerSettingsEntityPhoto.getId());
+        Optional<MediaOwnerDefaultStorageEntity> result = testee.findById(mediaOwnerDefaultStorageEntityPhoto.getId());
 
         assertThat(result).isPresent();
-        MediaOwnerSettingsEntity foundMediaOwnerSettingsEntity = result.get();
-        assertNotNull(foundMediaOwnerSettingsEntity.getCreatedAt());
-        assertEquals(PersistenceTestHelper.TEST_PRIVATE_USER_1_NAME, foundMediaOwnerSettingsEntity.getCreatedBy());
-        assertNotNull(foundMediaOwnerSettingsEntity.getLastModifiedAt());
-        assertEquals(PersistenceTestHelper.TEST_PRIVATE_USER_1_NAME, foundMediaOwnerSettingsEntity.getLastModifiedBy());
+        MediaOwnerDefaultStorageEntity foundMediaOwnerDefaultStorageEntity = result.get();
+        assertNotNull(foundMediaOwnerDefaultStorageEntity.getCreatedAt());
+        assertEquals(PersistenceTestHelper.TEST_PRIVATE_USER_1_NAME, foundMediaOwnerDefaultStorageEntity.getCreatedBy());
+        assertNotNull(foundMediaOwnerDefaultStorageEntity.getLastModifiedAt());
+        assertEquals(PersistenceTestHelper.TEST_PRIVATE_USER_1_NAME, foundMediaOwnerDefaultStorageEntity.getLastModifiedBy());
 
-        assertEquals(mediaOwnerSettingsEntityPhoto.getOwner(), foundMediaOwnerSettingsEntity.getOwner());
-        assertEquals(mediaOwnerSettingsEntityPhoto.getSupportedMediaCategoryType(), mediaOwnerSettingsEntityPhoto.getSupportedMediaCategoryType());
-        assertEquals(mediaOwnerSettingsEntityPhoto.getDefaultStorage(), mediaOwnerSettingsEntityPhoto.getDefaultStorage());
+        assertEquals(mediaOwnerDefaultStorageEntityPhoto.getOwner(), foundMediaOwnerDefaultStorageEntity.getOwner());
+        assertEquals(mediaOwnerDefaultStorageEntityPhoto.getSupportedMediaCategoryType(), mediaOwnerDefaultStorageEntityPhoto.getSupportedMediaCategoryType());
+        assertEquals(mediaOwnerDefaultStorageEntityPhoto.getDefaultStorage(), mediaOwnerDefaultStorageEntityPhoto.getDefaultStorage());
     }
 }

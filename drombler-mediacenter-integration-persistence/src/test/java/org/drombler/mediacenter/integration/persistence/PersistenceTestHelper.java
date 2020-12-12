@@ -36,12 +36,12 @@ public final class PersistenceTestHelper {
         return mediaStorageEntity;
     }
 
-    public static MediaOwnerSettingsEntity createMediaOwnerSettingsEntity(DromblerId owner, MediaCategoryType categoryType, MediaStorageEntity mediaStorageEntity) {
-        MediaOwnerSettingsEntity mediaOwnerSettingsEntity = new MediaOwnerSettingsEntity();
-        mediaOwnerSettingsEntity.setOwner(owner);
-        mediaOwnerSettingsEntity.setSupportedMediaCategoryType(categoryType);
-        mediaOwnerSettingsEntity.setDefaultStorage(mediaStorageEntity);
-        return mediaOwnerSettingsEntity;
+    public static MediaOwnerDefaultStorageEntity createMediaOwnerDefaultStorageEntity(DromblerId owner, MediaCategoryType categoryType, MediaStorageEntity mediaStorageEntity) {
+        MediaOwnerDefaultStorageEntity mediaOwnerDefaultStorageEntity = new MediaOwnerDefaultStorageEntity();
+        mediaOwnerDefaultStorageEntity.setOwner(owner);
+        mediaOwnerDefaultStorageEntity.setSupportedMediaCategoryType(categoryType);
+        mediaOwnerDefaultStorageEntity.setDefaultStorage(mediaStorageEntity);
+        return mediaOwnerDefaultStorageEntity;
     }
 
 //    public static final List<PhotoEntity> createEventEntities(int num) {
