@@ -2,8 +2,8 @@ package org.drombler.mediacenter.integration.persistence;
 
 import org.drombler.identity.core.DromblerId;
 import org.drombler.identity.core.DromblerUserId;
-import org.drombler.media.core.MediaCategoryType;
-import org.drombler.media.core.MediaStorageType;
+import org.drombler.media.core.MediaStorageContentType;
+import org.drombler.media.core.protocol.json.MediaCategoryType;
 
 import java.nio.file.Paths;
 import java.util.EnumSet;
@@ -30,7 +30,8 @@ public final class PersistenceTestHelper {
         mediaStorageEntity.setMediaStorageId(UUID.randomUUID());
         mediaStorageEntity.setName("My Media Storage " + nameId);
         mediaStorageEntity.setDirectoryPath(Paths.get(mediaStorageEntity.getName()));
-        mediaStorageEntity.setSupportedStorageTypes(EnumSet.of(MediaStorageType.SHARED_EVENTS));
+        mediaStorageEntity.setLegacyEventDirNames(false);
+        mediaStorageEntity.setSupportedStorageContentTypes(EnumSet.of(MediaStorageContentType.SHARED_EVENTS));
         mediaStorageEntity.setOwners(new HashSet<>(asList(TEST_PRIVATE_USER_1, TEST_PRIVATE_USER_2)));
         mediaStorageEntity.setSupportedMediaCategoryTypes(EnumSet.of(MediaCategoryType.PHOTO));
         return mediaStorageEntity;

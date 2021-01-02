@@ -6,7 +6,7 @@ import lombok.Setter;
 import lombok.ToString;
 import org.drombler.commons.spring.jpa.AbstractAuditableEntity;
 import org.drombler.identity.core.DromblerId;
-import org.drombler.media.core.MediaCategoryType;
+import org.drombler.media.core.protocol.json.MediaCategoryType;
 import org.drombler.mediacenter.integration.persistence.impl.DromblerIdConverter;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 

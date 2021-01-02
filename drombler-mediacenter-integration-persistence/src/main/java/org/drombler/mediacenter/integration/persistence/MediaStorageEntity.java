@@ -6,8 +6,8 @@ import lombok.Setter;
 import lombok.ToString;
 import org.drombler.commons.spring.jpa.AbstractAuditableEntity;
 import org.drombler.identity.core.DromblerId;
-import org.drombler.media.core.MediaCategoryType;
-import org.drombler.media.core.MediaStorageType;
+import org.drombler.media.core.MediaStorageContentType;
+import org.drombler.media.core.protocol.json.MediaCategoryType;
 import org.drombler.mediacenter.integration.persistence.impl.DromblerIdConverter;
 import org.drombler.mediacenter.integration.persistence.impl.PathConverter;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -48,10 +48,13 @@ public class MediaStorageEntity extends AbstractAuditableEntity {
     private Path directoryPath;
 
     @ElementCollection(fetch = FetchType.EAGER)
-    @CollectionTable(name = "mediastorage_type", joinColumns = @JoinColumn(name = "mediastorage_id"))
-    @Column(name = "mediastorage_type")
+    @CollectionTable(name = "mediastorage_contenttype", joinColumns = @JoinColumn(name = "mediastorage_id"))
+    @Column(name = "content_type")
     @Enumerated(EnumType.STRING)
-    private Set<MediaStorageType> supportedStorageTypes;
+    private Set<MediaStorageContentType> supportedStorageContentTypes;
+
+    @Column
+    private boolean legacyEventDirNames;
 
     @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "mediastorage_category", joinColumns = @JoinColumn(name = "mediastorage_id"))

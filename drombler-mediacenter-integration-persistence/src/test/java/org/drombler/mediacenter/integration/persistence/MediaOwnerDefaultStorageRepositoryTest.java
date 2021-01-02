@@ -11,8 +11,8 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.drombler.media.core.MediaCategoryType.PHOTO;
-import static org.drombler.media.core.MediaCategoryType.VIDEO;
+import static org.drombler.media.core.protocol.json.MediaCategoryType.PHOTO;
+import static org.drombler.media.core.protocol.json.MediaCategoryType.VIDEO;
 import static org.drombler.mediacenter.integration.persistence.PersistenceTestHelper.TEST_PRIVATE_USER_1;
 import static org.drombler.mediacenter.integration.persistence.PersistenceTestHelper.TEST_PRIVATE_USER_1_NAME;
 import static org.junit.jupiter.api.Assertions.assertEquals;

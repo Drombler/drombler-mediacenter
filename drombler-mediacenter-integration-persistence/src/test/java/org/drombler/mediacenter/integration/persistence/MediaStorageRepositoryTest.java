@@ -39,7 +39,7 @@ public class MediaStorageRepositoryTest {
         assertThat(foundMediaStorageEntity.getName()).isEqualTo(mediaStorageEntity.getName());
         assertThat(foundMediaStorageEntity.getDirectoryPath()).isEqualTo(mediaStorageEntity.getDirectoryPath());
 
-        assertThat(foundMediaStorageEntity.getSupportedStorageTypes()).isEqualTo(mediaStorageEntity.getSupportedStorageTypes());
+        assertThat(foundMediaStorageEntity.getSupportedStorageContentTypes()).isEqualTo(mediaStorageEntity.getSupportedStorageContentTypes());
         assertThat(foundMediaStorageEntity.getOwners()).isEqualTo(mediaStorageEntity.getOwners());
         assertThat(foundMediaStorageEntity.getSupportedMediaCategoryTypes()).isEqualTo(mediaStorageEntity.getSupportedMediaCategoryTypes());
     }
